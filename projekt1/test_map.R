@@ -1,7 +1,11 @@
-library(map)
 library(mapdata)
+library(maps)
 library(dplyr)
 library(ggplot2)
+library(tmap)
+library(spData)
+library(spDataLarge)
+
 world_population <- read.csv("WPP2019_TotalPopulationBySex.csv")
 countries <- world_population %>% filter(Time==2019, LocID<900)
 countries$Location[225] = "USA"
