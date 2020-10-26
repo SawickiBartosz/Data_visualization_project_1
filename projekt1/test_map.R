@@ -56,4 +56,21 @@ pal8 <- c("#33A02C", "#B2DF8A", "#FDBF6F", "#1F78B4", "#999999", "#E31A1C", "#E6
 tm_shape(land, ylim = c(-88,88)) +
   tm_raster("cover_cls", palette = pal8, title = "Global Land Cover")
 
+# polish election results 2015
 tm_shape(pol_pres15)  + tm_polygons("II_turnout") 
+
+
+# deaths in Poland
+zgony_pl<-read_csv2("zgony_polska.csv")
+data(pol_pres15)
+
+# geometry extraction
+geometry <- pol_pres15 %>% select(TERYT,geometry) %>% mutate(TERYT = paste(substr(TERYT,1,4),"00",sep = ''))
+
+# deaths in 2016 and TERYT code extraction 
+df_zgony <- zgony_pl %>% select(zgony = `razem;2016;[-]`, Kod) %>% mutate(TERYT = substr(Kod,1,6))
+
+df_zgony <- geometry %>% left_join(df_zgony, by = "TERYT")
+
+tm_shape(df_zgony) + tm_polygons("zgony")
+
