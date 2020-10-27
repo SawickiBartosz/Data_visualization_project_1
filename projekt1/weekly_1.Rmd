@@ -1,0 +1,22 @@
+---
+title: "weekly 1"
+author: "Jakub Jung, Patryk Bojarski, Bartosz Sawicki"
+date: "10/27/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## DONE:
+- czytanie artykułów o różnych pakietach do map w R
+- próby tych pakietów
+- sposób na pobieranie danych z kodem TERYT
+
+
+## TODO:
+- wybór pakietu z którym będziemy kontynuować
+- znalezienie danych do odpowiednich typów map
+- stworzenie różnych rodzajów map
+

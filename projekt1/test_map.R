@@ -35,7 +35,7 @@ world_pop <- world %>% left_join(countries, by = c( "region" = "Location" ))
 # world map with population density
 world_pop %>% 
   ggplot() + 
-  geom_polygon(aes(x=long, y = lat,fill = PopDensity, group = group), color = "white" )+ 
+  geom_polygon(aes(x=long, y = lat, group = group), color = "white" )+ 
   coord_fixed(1.3)+
   scale_fill_gradientn(colors =c('#ffffcc','#c7e9b4','#7fcdbb','#41b6c4','#1d91c0','#225ea8','#0c2c84'), trans = "log10")
 
@@ -73,4 +73,9 @@ df_zgony <- zgony_pl %>% select(zgony = `razem;2016;[-]`, Kod) %>% mutate(TERYT 
 df_zgony <- geometry %>% left_join(df_zgony, by = "TERYT")
 
 tm_shape(df_zgony) + tm_polygons("zgony")
+
+tmap_mode("plot")
+
+tm_shape(df_zgony) + tm_borders() + tm_bubbles("zgony")
+
 
