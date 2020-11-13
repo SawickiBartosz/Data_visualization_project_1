@@ -4,8 +4,12 @@ library(cartography)
 path_to_gpkg <- system.file("gpkg/mtq.gpkg", package="cartography")
 # import to an sf object
 mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
+
+svg("fig/colorized_proportional_symbols_categorical.svg", width = 6, height = 5)
+
+
 # Plot the municipalities
-plot(st_geometry(mtq), col="#f2efe9", border="#b38e43", bg = "#aad3df", 
+plot(st_geometry(mtq), col="#f2efe9", border="#b38e43", bg = "lightblue1", 
      lwd = 0.5)
 # Plot symbols with choropleth coloration
 propSymbolsTypoLayer(
@@ -20,12 +24,16 @@ propSymbolsTypoLayer(
   var2 = "STATUS",
   legend.var2.values.order = c("Prefecture", "Sub-prefecture", 
                                "Simple municipality"),
-  col = carto.pal(pal1 = "multi.pal", n1 = 3),
-  legend.var2.pos = c(685000, 1607000), 
-  legend.var2.title.txt = "Administrative\nStatus"
+  col = c('#7570b3','#1b9e77','#d95f02'), 
+  legend.var2.pos = "left", 
+  legend.var2.title.txt = "Administrative\nStatus",
+  legend.values.rnd = -3
 ) 
 # layout
-layoutLayer(title="Population Distribution in Martinique",
+layoutLayer(title="Population Distribution in Martinique", 
+            author = "cartography 2.1.3", 
+            sources = "Sources: Insee and IGN, 2018", 
             scale = 5, tabtitle = TRUE, frame = FALSE)
-# north arrow
-north(pos = "topleft")
+
+
+dev.off()

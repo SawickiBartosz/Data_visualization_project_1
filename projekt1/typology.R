@@ -5,18 +5,20 @@ path_to_gpkg <- system.file("gpkg/mtq.gpkg", package="cartography")
 # import to an sf object
 mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 
+svg("fig/typology.svg", width = 6, height = 5)
+
 # plot municipalities (only the backgroung color is plotted)
 plot(st_geometry(mtq), col = "white", border = NA, bg = "lightblue1")
 # plot administrative status
 typoLayer(
   x = mtq, 
   var="STATUS",  
-  col = c("aquamarine4", "yellow3","wheat"), 
+  col = c('#7570b3','#1b9e77','#d95f02'), 
   lwd = .7,
   legend.values.order = c("Prefecture",
                           "Sub-prefecture", 
                           "Simple municipality"),
-  legend.pos = "left",
+  legend.pos = "topright",
   legend.title.txt = "", 
   add = TRUE
 )
@@ -24,7 +26,9 @@ typoLayer(
 plot(st_geometry(mtq), lwd = 0.5, border = "grey20", add = TRUE, lty = 3)
 # title, source, author
 layoutLayer(title = "Administrative Status",
-            north = FALSE, tabtitle = TRUE, postitle = "right", 
-            col = "white", coltitle = "black") 
-# north arrow
-north(pos = "topleft")
+            author = "cartography 2.1.3", 
+            sources = "Sources: Insee and IGN, 2018", 
+            tabtitle = TRUE,
+            scale = 5)
+
+dev.off()
