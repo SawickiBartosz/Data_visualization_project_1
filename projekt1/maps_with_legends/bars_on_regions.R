@@ -18,8 +18,9 @@ plot(st_geometry(mtq), col = "#e4e9de", border = "darkseagreen4",
      bg = "lightblue1", lwd = 0.5)
 dev.off()
 barplots <- ggplot(df) +
-  geom_bar(aes(x = category, y = value, col = category, fill = category, width = 0.75), stat = 'identity')+
+  geom_bar(aes(x = category, y = value, fill=category), stat = 'identity')+
   facet_wrap(~LIBGEO) +
-  theme_tufte()
+  theme_tufte()+
+  scale_fill_discrete(labels = c("var1","var2","var3","var4"))
 
 ggsave("maps_with_legends/fig/barplots.svg", device = "svg")
