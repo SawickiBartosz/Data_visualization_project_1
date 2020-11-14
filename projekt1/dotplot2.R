@@ -19,4 +19,4 @@ map <- tm_shape(mtq) +tm_layout(bg.color = "lightblue1") + tm_polygons(col = "#f
   tm_shape(towers_sp) + tm_dots(col = "red") + tm_legend( frame = FALSE, frame.lwd = 0)+
   tm_layout(asp = 8/5, outer.margins = c(0.2,0.1,0.1,0.1))
 
-tmap_save(map, filename = "fig/dotplot2.svg",height = 5, width = 6)
+tmap_save(map, filename = "fig/dotplot2_new.svg",height = 5, width = 6)
