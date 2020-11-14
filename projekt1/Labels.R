@@ -9,7 +9,7 @@ mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 svg("fig/Labels.svg",  width = 5, height = 6)
 
 # plot municipalities
-plot(st_geometry(mtq), col = "#e4e9de", border = "darkseagreen4", 
+plot(st_geometry(mtq), col = "#e4e9de", border = "black", 
      bg = "lightblue1", lwd = 0.5)
 # plot labels
 labelLayer(

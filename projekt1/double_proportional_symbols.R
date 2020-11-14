@@ -1,7 +1,6 @@
 # dotplot of Martinique population in 2015
 library(sf)
 library(cartography)
-library(dplyr)
 library(sp)
 
 # path to the geopackage file embedded in cartography
@@ -11,7 +10,7 @@ mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 
 svg("fig/double_proportional_symbols.svg",  width = 5, height = 6)
 
-plot(st_geometry(mtq), col="#f2efe9", border="#b38e43", bg = "lightblue1", 
+plot(st_geometry(mtq), col="#f2efe9", border="black", bg = "lightblue1", 
      lwd = 0.5)
 # plot population
 propTrianglesLayer(mtq, var1 ="ACT", var2 = "CHOM", legend.title.txt = NULL,

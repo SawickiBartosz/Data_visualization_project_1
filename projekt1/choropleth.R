@@ -10,7 +10,7 @@ svg("fig/choropleth.svg", width = 5, height = 6)
 # plot municipalities (only borders are plotted)
 plot(st_geometry(mtq), 
      col="#f2efe9",
-     border="#b38e43",
+     border="black",
      bg = "lightblue1", 
      lwd = 0.5)
 # plot population

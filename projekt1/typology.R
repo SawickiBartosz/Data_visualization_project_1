@@ -8,7 +8,7 @@ mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 svg("fig/typology.svg",  width = 5, height = 6)
 
 # plot municipalities (only the backgroung color is plotted)
-plot(st_geometry(mtq), col = "white", border = NA, bg = "lightblue1")
+plot(st_geometry(mtq), col = "white", border = "black", bg = "lightblue1")
 # plot administrative status
 typoLayer(
   x = mtq, 

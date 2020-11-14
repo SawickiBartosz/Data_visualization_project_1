@@ -8,7 +8,7 @@ mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 svg("fig/proportional_symbols.svg",  width = 5, height = 6)
 
 # plot municipalities (only borders are plotted)
-plot(st_geometry(mtq), col="#f2efe9", border="#b38e43", bg = "lightblue1", 
+plot(st_geometry(mtq), col="#f2efe9", border="black", bg = "lightblue1", 
      lwd = 0.5)
 # plot population
 propSymbolsLayer(

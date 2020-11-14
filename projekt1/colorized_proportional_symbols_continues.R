@@ -8,7 +8,7 @@ mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 svg("fig/colorized_proportional_symbols_continiues.svg",  width = 5, height = 6)
 
 # Plot the municipalities
-plot(st_geometry(mtq), col="darkseagreen3", border="darkseagreen4",  
+plot(st_geometry(mtq), col="darkseagreen3", border="black",  
      bg = "lightblue1", lwd = 0.5)
 # Plot symbols with choropleth coloration
 propSymbolsChoroLayer(
