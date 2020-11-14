@@ -5,7 +5,7 @@ path_to_gpkg <- system.file("gpkg/mtq.gpkg", package="cartography")
 # import to an sf object
 mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 
-svg("fig/colorized_proportional_symbols_categorical.svg", width = 6, height = 5)
+svg("fig/colorized_proportional_symbols_categorical.svg",  width = 5, height = 6)
 
 
 # Plot the municipalities
@@ -19,21 +19,18 @@ propSymbolsTypoLayer(
   symbols = "square",
   border = "white",
   lwd = .5,
-  legend.var.pos = "topright", 
+  legend.var.pos = "n", 
   legend.var.title.txt = "Population",
   var2 = "STATUS",
   legend.var2.values.order = c("Prefecture", "Sub-prefecture", 
                                "Simple municipality"),
   col = c('#7570b3','#1b9e77','#d95f02'), 
-  legend.var2.pos = "left", 
+  legend.var2.pos = "n", 
   legend.var2.title.txt = "Administrative\nStatus",
   legend.values.rnd = -3
 ) 
 # layout
-layoutLayer(title="Population Distribution in Martinique", 
-            author = "cartography 2.1.3", 
-            sources = "Sources: Insee and IGN, 2018", 
-            scale = 5, tabtitle = TRUE, frame = FALSE)
+layoutLayer(frame = FALSE, title = "",scale = FALSE)
 
 
 dev.off()

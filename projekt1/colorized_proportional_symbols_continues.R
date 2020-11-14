@@ -5,7 +5,7 @@ path_to_gpkg <- system.file("gpkg/mtq.gpkg", package="cartography")
 # import to an sf object
 mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 
-svg("fig/colorized_proportional_symbols_continiues.svg", width = 6, height = 5)
+svg("fig/colorized_proportional_symbols_continiues.svg",  width = 5, height = 6)
 
 # Plot the municipalities
 plot(st_geometry(mtq), col="darkseagreen3", border="darkseagreen4",  
@@ -16,22 +16,19 @@ propSymbolsChoroLayer(
   var = "POP", 
   border = "grey50",
   lwd = 1,
-  legend.var.pos = "topright", 
+  legend.var.pos = "n", 
   legend.var.title.txt = "Population",
   var2 = "MED",
   method = "equal", 
   nclass = 4, 
   col = carto.pal(pal1 = "sand.pal", n1 = 4),
   legend.var2.values.rnd = -2,
-  legend.var2.pos = "left", 
+  legend.var2.pos = "n", 
   legend.var2.title.txt = "Median\nIncome\n(in euros)",
   legend.var.values.rnd = -3
 ) 
 # layout
-layoutLayer(title="Population & Wealth in Martinique, 2015", 
-            author = "cartography 2.1.3", 
-            sources = "Sources: Insee and IGN, 2018", 
-            scale = 5, tabtitle = TRUE, frame = FALSE)
+layoutLayer(frame = FALSE, title = "",scale = FALSE)
 
 
 dev.off()

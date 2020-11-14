@@ -8,7 +8,7 @@ path_to_gpkg <- system.file("gpkg/mtq.gpkg", package="cartography")
 # import to an sf object
 mtq <- st_read(dsn = path_to_gpkg, quiet = TRUE)
 
-svg("fig/isopleth.svg", width = 6, height = 5)
+svg("fig/isopleth.svg",  width = 5, height = 6)
 
 
 # plot municipalities (only the backgroung color is plotted)
@@ -27,13 +27,10 @@ smoothLayer(
   mask = mtq, 
   legend.values.rnd = -3,
   legend.title.txt = "Population\nPotential",
-  legend.pos = "topright", 
+  legend.pos = "n", 
   add=TRUE
 )
 # layout
-layoutLayer(title = "Population Distribution in Martinique",
-            sources = "Sources: Insee and IGN, 2018",
-            author = paste0("cartography ", packageVersion("cartography")),
-            frame = FALSE, north = FALSE, tabtitle = TRUE, scale = 5)
+layoutLayer(frame = FALSE, title = "",scale = FALSE)
 
 dev.off()

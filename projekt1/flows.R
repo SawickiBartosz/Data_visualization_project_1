@@ -22,7 +22,7 @@ mtq_mob <- getLinkLayer(
 )
 
 
-svg("fig/flows.svg", width = 6, height = 5)
+svg("fig/flows.svg", width = 5, height = 6)
 
 
 # plot municipalities
@@ -37,18 +37,15 @@ gradLinkTypoLayer(
   var = "fij", 
   breaks = c( 100,  500, 1200, 2500, 4679.0),
   lwd = c(1,4,8,16),
-  legend.var.pos = "left",
+  legend.var.pos = "n",
   legend.var.title.txt = "Nb. of\nCommuters",
   var2 = "sj", 
   col = c("grey25", "red4"),
   legend.var2.title.txt = "Workplace",
-  legend.var2.pos = "topright"
+  legend.var2.pos = "n"
 ) 
 # map layout
-layoutLayer(title = "Commuting to Prefectures in Martinique", 
-            sources = "Sources: Insee and IGN, 2018",  
-            author = paste0("cartography ", packageVersion("cartography")), 
-            frame = FALSE, col = "grey25", coltitle = "white",
-            tabtitle = TRUE, scale = 5)
+layoutLayer(frame = FALSE, title = "",scale = FALSE)
+
 
 dev.off()
